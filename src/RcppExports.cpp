@@ -10,6 +10,63 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
+// meanTest
+double meanTest(NumericVector x);
+RcppExport SEXP _impSq_meanTest(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(meanTest(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// medianC
+double medianC(NumericVector x);
+RcppExport SEXP _impSq_medianC(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(medianC(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// meanC
+double meanC(NumericVector x, bool b);
+RcppExport SEXP _impSq_meanC(SEXP xSEXP, SEXP bSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    Rcpp::traits::input_parameter< bool >::type b(bSEXP);
+    rcpp_result_gen = Rcpp::wrap(meanC(x, b));
+    return rcpp_result_gen;
+END_RCPP
+}
+// pdistC
+NumericVector pdistC(NumericVector x, NumericVector y);
+RcppExport SEXP _impSq_pdistC(SEXP xSEXP, SEXP ySEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type y(ySEXP);
+    rcpp_result_gen = Rcpp::wrap(pdistC(x, y));
+    return rcpp_result_gen;
+END_RCPP
+}
+// normC
+double normC(NumericVector v);
+RcppExport SEXP _impSq_normC(SEXP vSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type v(vSEXP);
+    rcpp_result_gen = Rcpp::wrap(normC(v));
+    return rcpp_result_gen;
+END_RCPP
+}
 // rcpp_hello
 List rcpp_hello();
 RcppExport SEXP _impSq_rcpp_hello() {
@@ -22,6 +79,11 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_impSq_meanTest", (DL_FUNC) &_impSq_meanTest, 1},
+    {"_impSq_medianC", (DL_FUNC) &_impSq_medianC, 1},
+    {"_impSq_meanC", (DL_FUNC) &_impSq_meanC, 2},
+    {"_impSq_pdistC", (DL_FUNC) &_impSq_pdistC, 2},
+    {"_impSq_normC", (DL_FUNC) &_impSq_normC, 1},
     {"_impSq_rcpp_hello", (DL_FUNC) &_impSq_rcpp_hello, 0},
     {NULL, NULL, 0}
 };

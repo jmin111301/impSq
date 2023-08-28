@@ -24,7 +24,7 @@ library(tidyverse)
 
 
 Impute<- function(data, method = "random"){
-  sourceCpp("/Users/ymin/imputation/imputation/C/impute.cpp")
+  #sourceCpp("/Users/ymin/imputation/imputation/C/impute.cpp")
   ### Naive random imputation ###
   naCols <- names(data)[data %>% is.na() %>% colSums() > 0]
   for (name in naCols){
